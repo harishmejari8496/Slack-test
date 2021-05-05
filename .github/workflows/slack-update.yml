@@ -1,1 +1,15 @@
 
+failure-notification:
+on: push
+name: Slack Notification Demo
+jobs:
+  slackNotification:
+    name: Slack Failure
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+	-run: exit1
+    - name: Slack Failure
+      uses: rtCamp/action-slack-notify@v2
+      env:
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
