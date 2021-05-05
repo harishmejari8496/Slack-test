@@ -1,7 +1,5 @@
-
-failure-notification:
 on: push
-name: Slack Notification Demo
+name: Slack Notification Test
 jobs:
 runs-on: ubuntu-latest
 steps:
@@ -63,6 +61,7 @@ steps:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+	
 publish_to_nexus:
     runs-on: ubuntu-latest
 
