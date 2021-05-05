@@ -11,12 +11,12 @@ steps:
         java-version: 11
         server-id: ossrh # Value of the distributionManagement/repository/id field of the pom.xml
         settings-path: ${{ github.workspace }} # location for the settings.xml file
-	 
-slackNotification:
-    name: Slack Failure
+	
+  slackNotification:
+    name: Slack Notification
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-	-run: exit1
     - name: Slack Notification
       uses: rtCamp/action-slack-notify@v2
       env:
