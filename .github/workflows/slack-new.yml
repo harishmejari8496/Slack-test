@@ -23,11 +23,8 @@ jobs:
       uses: rtCamp/action-slack-notify@v2
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-
-    - name: Install xmllint
-      run: |
-        sudo apt-get update
-        sudo apt-get install libxml2-utils
+        SLACK_MESSAGE: ${{ job.status }}
+        
 
 
 
