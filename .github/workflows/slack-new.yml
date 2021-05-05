@@ -1,6 +1,5 @@
 
 on: push
-name: Slack Notification Demo
 jobs:
 runs-on: ubuntu-latest
 steps:
@@ -14,7 +13,6 @@ steps:
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 	
 name: Slack Notification Demo
-jobs:
   slackNotification:
     name: Slack Notification
     runs-on: ubuntu-latest
