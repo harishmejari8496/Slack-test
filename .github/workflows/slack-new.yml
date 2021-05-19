@@ -15,21 +15,21 @@ jobs:
         settings-path: ${{ github.workspace }} # location for the settings.xml file
         
 if ${{job.status}} == red
-slackNotification:
-    name: Slack Notification
+slackNotification1:
+    name: Slack Notification1
     steps:
     - uses: actions/checkout@v2
-    - name: Slack Notification
+    - name: Slack Notification1
       uses: rtCamp/action-slack-notify@v2
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         SLACK_MESSAGE: Build Fail for ${{ github.event.repository.name }}
 else if
-slackNotification:
-    name: Slack Notification
+slackNotification2:
+    name: Slack Notification2
     steps:
     - uses: actions/checkout@v2
-    - name: Slack Notification
+    - name: Slack Notification2
       uses: rtCamp/action-slack-notify@v2
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
