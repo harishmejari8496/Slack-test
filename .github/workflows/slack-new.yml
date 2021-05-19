@@ -24,7 +24,7 @@ slackNotification:
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         SLACK_MESSAGE: Build Fail for ${{ github.event.repository.name }}
-el if
+else if
 slackNotification:
     name: Slack Notification
     steps:
