@@ -23,7 +23,7 @@ slackNotification:
       uses: rtCamp/action-slack-notify@v2
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        SLACK_MESSAGE: Build Fail for ${{ github.event.repository.name }}
+        SLACK_MESSAGE: Build Failing for ${{ github.event.repository.name }}
 else if
 slackNotification:
     name: Slack Notification
