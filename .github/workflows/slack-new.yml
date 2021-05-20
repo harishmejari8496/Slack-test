@@ -17,7 +17,6 @@ jobs:
   slackNotification1:
     name: Slack Notification1
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
       - name: Slack Notification1
@@ -30,7 +29,6 @@ jobs:
   slackNotification2:
     name: Slack Notification2
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
       - name: Slack Notification2
