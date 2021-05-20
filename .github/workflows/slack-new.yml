@@ -14,12 +14,13 @@ jobs:
           server-id: ossrh # Value of the distributionManagement/repository/id field of the pom.xml
           settings-path: ${{ github.workspace }} # location for the settings.xml file
 
-  slackNotification:
+  slackNotification1:
     name: Slack Notification1
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
-      - name: Slack Notification
+      - name: Slack Notification1
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
@@ -29,6 +30,7 @@ jobs:
   slackNotification2:
     name: Slack Notification2
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
       - name: Slack Notification2
