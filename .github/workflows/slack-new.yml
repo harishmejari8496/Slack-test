@@ -1,46 +1,23 @@
-on: push
-name: Slack Notification Demo
+name: Redis Service Example
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
 jobs:
-  build:
-
+  container-job:
     runs-on: ubuntu-latest
-    steps:
-#      - uses: actions/checkout@v2
-#      - name: Set up JDK 11
-#        uses: actions/setup-java@v1
-#        with:
-#          ref: ${{ github.ref }}
-#          java-version: 11
-#          server-id: ossrh # Value of the distributionManagement/repository/id field of the pom.xml
-#          settings-path: ${{ github.workspace }} # location for the settings.xml file
-        run: echo "job done"
 
-  slackNotification1:
-    name: Slack Notification1
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Slack Notification1
-        uses: rtCamp/action-slack-notify@v2
-        env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_MESSAGE: Build Failing for ${{ github.event.repository.name }}
-      - when: ${{job.status}} == red
+    container:
+      image:  node:10.16-jessie
 
-  slackNotification2:
-    name: Slack Notification2
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Slack Notification2
-        uses: rtCamp/action-slack-notify@v2
-        env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_MESSAGE: Build Fail for ${{ github.event.repository.name }}
-      - when: ${{job.status}} == green
-        
-
-
-
-
-
+    services:
+      redis:
+        image: redis
+        ports:
+          - 6379:6379
+        options: --entrypoint redis-server
