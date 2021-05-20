@@ -13,8 +13,7 @@ jobs:
         java-version: 11
         server-id: ossrh # Value of the distributionManagement/repository/id field of the pom.xml
         settings-path: ${{ github.workspace }} # location for the settings.xml file
-        
-if ${{job.status}} == red
+
 slackNotification:
     name: Slack Notification1
     steps:
@@ -24,7 +23,8 @@ slackNotification:
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         SLACK_MESSAGE: Build Failing for ${{ github.event.repository.name }}
-else if
+    - when: ${{job.status}} == red
+
 slackNotification2:
     name: Slack Notification2
     steps:
@@ -34,6 +34,7 @@ slackNotification2:
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         SLACK_MESSAGE: Build Fail for ${{ github.event.repository.name }}
+    - when: ${{job.status}} == green
         
 
 
