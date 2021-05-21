@@ -13,7 +13,6 @@ jobs:
                 java-version: 11
                 server-id: ossrh # Value of the distributionManagement/repository/id field of the pom.xml
                 settings-path: ${{ github.workspace }} # location for the settings.xml file
-    run: echo "job done"
 
   slackNotification1:
     name: Slack Notification1
