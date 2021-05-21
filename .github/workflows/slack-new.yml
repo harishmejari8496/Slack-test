@@ -25,5 +25,5 @@ jobs:
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_COLOR: ${{ job.status }}
-          SLACK_MESSAGE: 'Test Message 1'
+          SLACK_MESSAGE: ${{ job.status }}
           SLACK_TITLE: Test Title
