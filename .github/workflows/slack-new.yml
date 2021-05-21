@@ -28,7 +28,7 @@ jobs:
 #          SLACK_MESSAGE: ${{ job.status }}
 #          SLACK_TITLE: Test Title
 
-    NewSlackNotification:
+    newSlackNotification:
       name: NewSlack Notification
       steps:
         - uses: 8398a7/action-slack@v3
