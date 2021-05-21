@@ -28,7 +28,7 @@ jobs:
 #          SLACK_MESSAGE: ${{ job.status }}
 #          SLACK_TITLE: Test Title
 
-    newSlackNotification:
+    slackNotification:
       name: NewSlack Notification
       run-on: ubuntu-latest
       steps:
